@@ -1,6 +1,6 @@
 FROM amazon/aws-cli:latest
 
-RUN yum install -y curl jq docker
+RUN yum install -y curl jq && yum clean all
 
 COPY mon-docker-cloudwatch.sh /mon-docker-cloudwatch.sh
 
