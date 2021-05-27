@@ -175,7 +175,7 @@ function run() {
 		$( echo ${_cpu} | cut -d, -f3 )
 }
 
-_instance_id=$( _get_instance_id )
+_instance_id=$( _get_instance_id || hostname )
 
 _nn=$( echo ${FILTER} | sed -e 's/,/\\|/g' )
 
