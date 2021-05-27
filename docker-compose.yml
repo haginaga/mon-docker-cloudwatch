@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  mon-docker-cloudwatch:
+    image: mon-docker-cloudwatch:latest
+    build:
+      context: .
+    environment:
+      FILTER: ''
+      INTERVAL: 5
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
