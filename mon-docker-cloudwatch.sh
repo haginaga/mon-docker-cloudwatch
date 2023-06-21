@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # require:
-#   docker, jq, awscli
+#   docker, jq, awscli, ec2-utils
 
 
 DEBUG=${DEBUG:-0}
@@ -9,7 +9,6 @@ DEBUG=${DEBUG:-0}
 FILTER=${FILTER:-}
 
 INTERVAL=${INTERVAL:-5}
-
 
 ## container api
 
@@ -88,7 +87,7 @@ function _parse_cpu_stats() {
 # Get ec2 instance id
 #
 function _get_instance_id() {
-	curl http://169.254.169.254/latest/meta-data/instance-id 2>/dev/null
+	[ -e /usr/bin/ec2-metadata ] && /usr/bin/ec2-metadata -i | cut -d' ' -f2
 }
 
 # AWS: Create metrics.

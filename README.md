@@ -49,6 +49,7 @@ The calculation method is the same as the stats command of docker cli.
 - docker
 - curl
 - jq
+- ec2-utils
 
 
 // EOF
